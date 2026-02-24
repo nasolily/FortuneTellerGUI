@@ -54,20 +54,23 @@ public class FortuneTellerFrame extends JFrame {
     }
 
     private void createTopPanel() {
-            topPnl = new JPanel();
+        topPnl = new JPanel();
 
+        ImageIcon originalIcon = new ImageIcon("fortuneTeller.png");
 
-            icon = new ImageIcon("fortuneTeller.png");
-            label = new JLabel("Fortune Teller", icon, JLabel.CENTER);
-            label.setIcon(icon);
-            label.setFont(new Font("Serif", Font.BOLD, 48));
-            label.setVerticalTextPosition(JLabel.BOTTOM);
-            label.setHorizontalTextPosition(JLabel.CENTER);
+        Image img = originalIcon.getImage();
+        Image scaledImg = img.getScaledInstance(450, 250, Image.SCALE_SMOOTH);
+        icon = new ImageIcon(scaledImg);
 
-            topPnl.add(label);
-            mainPnl.add(topPnl, BorderLayout.NORTH);
+        label = new JLabel("Fortune Teller", icon, JLabel.CENTER);
+        label.setFont(new Font("Serif", Font.BOLD, 48));
 
-        }
+        label.setVerticalTextPosition(JLabel.BOTTOM); // text below image
+        label.setHorizontalTextPosition(JLabel.CENTER); // text below image now centered
+
+        topPnl.add(label);
+        mainPnl.add(topPnl, BorderLayout.NORTH);
+    }
 
     private void createMiddlePanel() {
         midPnl = new JPanel();
